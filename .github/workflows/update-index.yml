@@ -24,6 +24,8 @@ jobs:
         uses: snok/install-poetry@v1
       - name: Install dependencies
         run: poetry install
+      - name: Check connectivity
+        run: curl -6 https://ipinfo.io/ip
       - name: Ingest docs
         run: poetry run python backend/ingest.py
         env:
